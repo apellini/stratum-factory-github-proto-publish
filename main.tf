@@ -16,7 +16,7 @@ resource "github_repository_deploy_key" "rust_deploy" {
 resource "github_actions_secret" "rust_deploy_key" {
   repository      = var.target_repo
   secret_name     = "RUST_DEPLOY_KEY"
-  plaintext_value = tls_private_key.rust_deploy.private_key_openssh
+  value = tls_private_key.rust_deploy.private_key_openssh
 }
 
 # CI variables in stratum-proto — one per required Actions var
